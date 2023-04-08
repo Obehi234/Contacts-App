@@ -12,16 +12,10 @@
         android:text="Loading Contacts..."
         android:textColor="@color/white"/>
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
      <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvContactList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/contact_list_item"/>
-
-    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>
