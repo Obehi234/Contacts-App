@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "140224797957",
+    "project_id": "coding-zest-for-week-6",
+    "storage_bucket": "coding-zest-for-week-6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140224797957:android:81b6f1f89ff3c96c322b6c",
+        "android_client_info": {
+          "package_name": "com.example.codingzestfirebaseapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140224797957-c3uicmuonnug57g3qddv2nsmbt2fa69p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_T7crm5K7MVdQNHOSkRiV5F6q87jtsSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140224797957-c3uicmuonnug57g3qddv2nsmbt2fa69p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
