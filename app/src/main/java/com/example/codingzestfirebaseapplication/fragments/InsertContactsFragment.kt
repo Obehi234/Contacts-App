@@ -70,6 +70,9 @@ class InsertContactsFragment : Fragment() {
                 etLastName.text.clear()
                 etPhoneNumber.text.clear()
 
+                // Exit the fragment and go back to the previous fragment
+                requireActivity().supportFragmentManager.popBackStack()
+
             }.addOnFailureListener {err ->
                 Toast.makeText(context, "Error ${err.message}", Toast.LENGTH_SHORT).show()
             }

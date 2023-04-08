@@ -40,7 +40,7 @@ class ContactListFragment : Fragment() {
         rvContact.visibility = View.GONE
         tvLoading.visibility = View.VISIBLE
 
-        dbReference = FirebaseDatabase.getInstance().getReference("contacts")
+        dbReference = FirebaseDatabase.getInstance().getReference("Contacts")
 
         dbReference.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

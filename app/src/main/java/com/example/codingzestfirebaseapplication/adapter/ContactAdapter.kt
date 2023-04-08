@@ -20,7 +20,7 @@ class ContactAdapter(private val contactList: ArrayList<ContactModel>): Recycler
 
     override fun onBindViewHolder(holder: ContactAdapter.ViewHolder, position: Int) {
         val currentContact = contactList[position]
-        holder.tvContactName.text = currentContact.contactName
+        holder.tvContactName.text = "${currentContact.contactName} ${currentContact.contactLastName}"
     }
 
     override fun getItemCount(): Int = contactList.size

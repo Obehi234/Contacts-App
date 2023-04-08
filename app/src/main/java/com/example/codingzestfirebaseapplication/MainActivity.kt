@@ -12,6 +12,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class MainActivity : AppCompatActivity() {
     private lateinit var fab: FloatingActionButton
     private lateinit var tvShowContact: TextView
+    private var isContactListDisplayed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,19 @@ class MainActivity : AppCompatActivity() {
         //Set up main fragment
         launchFragment(AddFragment())
         fab.setOnClickListener { launchFragment(InsertContactsFragment()) }
-        tvShowContact.setOnClickListener { launchFragment(ContactListFragment()) }
+        tvShowContact.setOnClickListener {  toggleContactList()  }
+    }
+
+    private fun toggleContactList() {
+        if (isContactListDisplayed) {
+            // ContactListFragment is currently displayed, so remove it
+            supportFragmentManager.popBackStack()
+            isContactListDisplayed = false
+        } else {
+            // ContactListFragment is not displayed, so show it
+            launchFragment(ContactListFragment())
+            isContactListDisplayed = true
+        }
     }
 
     private fun launchFragment(fragment: Fragment) = supportFragmentManager.beginTransaction().apply {
