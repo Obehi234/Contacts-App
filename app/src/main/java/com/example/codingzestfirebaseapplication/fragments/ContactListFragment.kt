@@ -2,16 +2,20 @@ package com.example.codingzestfirebaseapplication.fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.codingzestfirebaseapplication.R
 import com.example.codingzestfirebaseapplication.adapter.ContactAdapter
 import com.example.codingzestfirebaseapplication.model.ContactModel
+import com.example.codingzestfirebaseapplication.utils.CONTACT
 import com.google.firebase.database.*
 class ContactListFragment : Fragment() {
 
@@ -30,7 +34,7 @@ class ContactListFragment : Fragment() {
         rvContact.layoutManager = LinearLayoutManager(requireContext())
         rvContact.setHasFixedSize(true)
 
-        contactList = arrayListOf<ContactModel>()
+        contactList = arrayListOf()
         getContactData()
 
         return view
@@ -52,7 +56,16 @@ class ContactListFragment : Fragment() {
                             contactList.add(contactData)
                         }
                     }
-                    val cAdapter = ContactAdapter(contactList)
+                    val cAdapter = ContactAdapter(contactList, requireContext()) { contactModel ->
+                        val bundle = Bundle()
+                        bundle.putParcelable(CONTACT, contactModel)
+                        val updateDetailsFragment = UpdateDetailsFragment()
+                        updateDetailsFragment.arguments = bundle
+                        parentFragmentManager.commit {
+                            replace(R.id.fcvDisplay, updateDetailsFragment)
+                            addToBackStack(updateDetailsFragment::class.java.name)
+                        }
+                    }
                     rvContact.adapter = cAdapter
                     rvContact.visibility = View.VISIBLE
                     tvLoading.visibility = View.GONE
